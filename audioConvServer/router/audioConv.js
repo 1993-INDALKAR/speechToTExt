@@ -30,20 +30,20 @@ try {
             url: 'https://stream.watsonplatform.net/speech-to-text/api'
         });
         sleep(1000);
-        // let files = ['C:/Users/haris/Downloads/test.mp3'];
-        let files = ['./allan.mp3'];
+        let files = ['C:/Users/haris/Downloads/test.wav'];
+        
         console.log("1");
         console.log(files[0]);
         for (let file in files) {
             let params = {
                 audio: fs.createReadStream(files[file]),
-                content_type: 'audio/mpeg',
+                content_type: 'audio/wav',
                 timestamps: true,
                 word_alternatives_threshold: 0.9,
                 keywords: ['colorado', 'tornado', 'tornadoes'],
                 keywords_threshold: 0.5
             }
-           // console.log("params" + params);
+            console.log("params" + params);
             speech_to_text.recognize(params, async (error, transcript) => {
                 if (error)
                     console.log('Error:', error);

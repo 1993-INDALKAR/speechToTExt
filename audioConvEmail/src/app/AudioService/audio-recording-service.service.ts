@@ -54,7 +54,8 @@ export class AudioRecordingServiceService {
   private record() {
     this.recorder = new RecordRTC.StereoAudioRecorder(this.stream, {
       type: 'audio',
-      mimeType: 'audio/mp3'
+      // mimeType: 'audio/mp3'
+      mimeType: 'audio/wav'
     });
 
     this.recorder.record();
@@ -79,7 +80,8 @@ export class AudioRecordingServiceService {
       this.recorder.stop((blob) => {
         if (this.startTime) {
           let currentTime = new Date().getTime();
-          const mp3Name = encodeURIComponent(`audio.${currentTime}.mp3`);
+          // const mp3Name = encodeURIComponent(`audio.${currentTime}.mp3`);
+          const mp3Name = encodeURIComponent(`audio.${currentTime}.wav`);
           this.stopMedia();
           // console.log(blob);
           this.recorded.next({ record: blob, title: mp3Name });

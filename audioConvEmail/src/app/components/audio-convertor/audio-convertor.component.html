@@ -25,7 +25,7 @@
   <audio *ngIf="!isRecording && blobUrl" [src]="blobUrl" type="audio/wav" controls="controls">
     <!-- <source [src]="blobUrl" type="audio/webm"> -->
       
-  </audio><a [href]="blobUrl" *ngIf="!isRecording && blobUrl" (click)="onConvertAudio()" download="test.mp3">Download</a>
+  </audio><a [href]="blobUrl" *ngIf="!isRecording && blobUrl" (click)="onConvertAudio()" download="test.wav">Download</a>
 
 
   <!-- <div class="btn btn-success" (click)="onConvertAudio()">Convert</div> -->
