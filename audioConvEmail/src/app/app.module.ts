@@ -11,11 +11,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ActualLoginComponent } from './components/actual-login/actual-login.component';
 import { AudioConvertorComponent } from './components/audio-convertor/audio-convertor.component';
+import { AddColleaguesComponent } from './components/add-colleagues/add-colleagues.component';
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "signup", component: LoginComponent },
   { path: "login", component: ActualLoginComponent },
+  { path: "addColleagues", component: AddColleaguesComponent },
   { path: "audioConv", component: AudioConvertorComponent },
   {
     path: 'not-found', component: PageNotFoundComponent
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     HomeComponent,
     ActualLoginComponent,
-    AudioConvertorComponent
+    AudioConvertorComponent,
+    AddColleaguesComponent
 
   ],
   imports: [

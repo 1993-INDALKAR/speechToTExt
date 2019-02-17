@@ -1,4 +1,4 @@
-// const connection = require("./setting/mongoConnection");
+const connection = require("./setting/mongoConnection");
 const express = require("express");
 const bodyParser = require("body-parser");
 const configRoutes = require("./router");

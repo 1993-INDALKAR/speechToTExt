@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SignupServiceService } from 'src/app/signUpService/signup-service.service';
+import { ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-actual-login',
   templateUrl: './actual-login.component.html',
@@ -11,14 +12,24 @@ import { SignupServiceService } from 'src/app/signUpService/signup-service.servi
 export class ActualLoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  createUser: boolean;
 
-  constructor(private formBuilder: FormBuilder, private loginService: SignupServiceService) {
+  constructor(private formBuilder: FormBuilder, 
+              private loginService: SignupServiceService,
+              private routes:ActivatedRoute) {
 
     this.createForm();
 
   }
 
   ngOnInit() {
+
+    this.routes.queryParams.subscribe(
+      (queryParams: Params) => {
+        this.createUser = queryParams['createdUser'];
+      }
+    );
+
   }
 
   createForm() {

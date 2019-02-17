@@ -10,6 +10,7 @@ import * as moment from 'moment';
 })
 export class AudioRecordingServiceService {
 
+
   private stream;
   private recorder;
   private interval;
@@ -53,7 +54,7 @@ export class AudioRecordingServiceService {
   private record() {
     this.recorder = new RecordRTC.StereoAudioRecorder(this.stream, {
       type: 'audio',
-      mimeType: 'audio/webm'
+      mimeType: 'audio/mp3'
     });
 
     this.recorder.record();
@@ -81,10 +82,10 @@ export class AudioRecordingServiceService {
           const mp3Name = encodeURIComponent(`audio.${currentTime}.mp3`);
           this.stopMedia();
           // console.log(blob);
-         this.recorded.next({record:blob,title:mp3Name});
-        //  console.log(this.recorded);
+          this.recorded.next({ record: blob, title: mp3Name });
+          // console.log("1" + this.recorded);
         }
-      },()=>{
+      }, () => {
         this.stopMedia();
         this.recordingFail.next();
       });
@@ -105,7 +106,7 @@ export class AudioRecordingServiceService {
     }
   }
 
-  abortRecording(){
+  abortRecording() {
     this.stopMedia();
   }
 

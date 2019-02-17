@@ -6,7 +6,22 @@ const xss = require("xss");
 try {
 
     router.post("/", async (req, res) => {
-        console.log(req.body);
+        const user = req.body;
+        // console.log(user);
+        let signup = {};
+
+        var status = "";
+
+        signup = await data.createUser(user);
+
+        if (signup.hasOwnProperty("message")) {
+            status = "400";
+        }
+        else {
+            status = "200";
+        }
+
+        res.status(status).json(signup);
     });
 }
 catch (e) {

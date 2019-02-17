@@ -1,0 +1,19 @@
+<!-- <form> -->
+<div>
+  <label>Full Name</label>
+  <input type="text" class="form-control" #fullName />
+</div>
+<div>
+  <label>Email</label>
+  <input type="email" class="form-control" #email />
+</div>
+<button class="btn btn-success" (click)="addColleague()"> Add Colleagu </button>
+<!-- </form> -->
+
+<div>
+  <div *ngFor="let colleague of colleagues">
+    <h2>{{colleague.fullName}} : {{colleague.email}}</h2>
+  </div>
+</div>
+
+<button (click)="saveColleagues()">Save Colleagues</button>

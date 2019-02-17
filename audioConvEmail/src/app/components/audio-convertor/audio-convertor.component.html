@@ -21,11 +21,13 @@
   <div *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
 
 
-  <audio *ngIf="!isRecording && blobUrl" controls>
-    <source [src]="blobUrl" type="audio/webm">
-  </audio>
+  <!-- <audio *ngIf="!isRecording && blobUrl" src="blobUrl" type="audio/mp3" controls="controls"> -->
+  <audio *ngIf="!isRecording && blobUrl" [src]="blobUrl" type="audio/wav" controls="controls">
+    <!-- <source [src]="blobUrl" type="audio/webm"> -->
+      
+  </audio><a [href]="blobUrl" *ngIf="!isRecording && blobUrl" (click)="onConvertAudio()" download="test.mp3">Download</a>
 
 
-  <div class="btn btn-success" (click)="onConvertAudio()">Convert</div>
+  <!-- <div class="btn btn-success" (click)="onConvertAudio()">Convert</div> -->
 
 </div>

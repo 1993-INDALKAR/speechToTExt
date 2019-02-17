@@ -10,16 +10,16 @@ export class AudioConvService {
 
   constructor(private httpClient: HttpClient) { }
 
-  convertAudio(audioFile) {
+  convertAudio() {
 
     // console.log(audioFile);
     // console.log(JSON.stringify(audioFile));
 
-    let file = {
-      path: audioFile
-    }
+    // let file = {
+    //   path: audioFile
+    // }
 
-    this.httpClient.post(`${this.url}/audioConv`, file)
+    this.httpClient.get(`${this.url}/audioConv`)
       .subscribe(res => {
         if (res) {
           console.log(res);

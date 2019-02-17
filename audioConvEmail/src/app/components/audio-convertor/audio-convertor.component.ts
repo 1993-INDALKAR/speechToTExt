@@ -68,15 +68,34 @@ export class AudioConvertorComponent {
     this.abortRecording();
   }
 
-  onConvertAudio() {
+  async onConvertAudio() {
 
     if (this.blobUrl) {
-      this.audioRecordingService.getRecordedBlob().subscribe((data) => {
-        this.blobUrl = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.record));
-      });
+      // this.audioRecordingService.getRecordedBlob().subscribe((data) => {
+      //   this.blobUrl = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.record));
+      // });
 
-      const filePath = this.blobUrl.changingThisBreaksApplicationSecurity;
-      this.audioConvService.convertAudio(filePath);
+      
+
+
+      // const blob = new Blob([this.blobUrl], { type: 'audio/wav' });
+      // const url = window.URL.createObjectURL(blob);
+      // const a = document.createElement('a');
+      // a.style.display = 'none';
+      // a.href = url;
+      // a.download = 'test.wav';
+      // document.body.appendChild(a);
+      // a.click();
+      // setTimeout(() => {
+      //   document.body.removeChild(a);
+      //   // window.URL.revokeObjectURL(url);
+      // }, 100);
+
+
+      // const filePath = this.blobUrl.changingThisBreaksApplicationSecurity;
+      // var audioFile = new Audio(filePath);
+      // // console.log(audioFile);
+       await  this.audioConvService.convertAudio();
     }
     else {
 
