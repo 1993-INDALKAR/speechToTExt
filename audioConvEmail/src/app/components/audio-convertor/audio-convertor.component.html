@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="form-group">
+    <div class="row">
+
+      <div class="col-lg-4 col-sm-12 col-md-4">
+        <button class="btn recordBtn" (click)="startRecording()">{{recordText}}</button>
+      </div>
+
+      <div class="col-lg-4 col-sm-12 col-md-4">
+        <button class="btn recordBtn ml-5" (click)="stopRecording()">Stop Recording</button>
+      </div>
+
+      <div class="col-lg-4 col-sm-12 col-md-4">
+        <button class="btn recordBtn ml-5" (click)="clearRecordeDate()">Clear Recording</button>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
+
+
+  <audio *ngIf="!isRecording && blobUrl" controls>
+    <source [src]="blobUrl" type="audio/webm">
+  </audio>
+
+
+  <div class="btn btn-success" (click)="onConvertAudio()">Convert</div>
+
+</div>

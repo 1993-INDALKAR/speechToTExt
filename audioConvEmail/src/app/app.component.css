@@ -1,0 +1,19 @@
+
+
+.mainBody{
+    height: 100vh;
+    width:100%;
+    background-color: whitesmoke;
+}
+
+.recordBtn{
+    background-color: white;
+    color:blue;
+    border-color:blue;
+    text-align: center;
+}
+
+.recordBtn:hover{
+    background-color: blue;
+    color:white;
+}
