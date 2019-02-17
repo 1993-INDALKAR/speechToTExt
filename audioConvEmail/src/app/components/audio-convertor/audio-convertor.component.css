@@ -10,4 +10,80 @@
     color:white;
 } */
 
+button {
+    background: none;
+    width: 250px;
+    height: 100px;
+    border: 1px solid red;
+    font-size: 20px;
+    border-radius: 4px;
+    transition: .6s;
+    overflow: hidden;
+}
 
+button:focus{
+    outline: none;
+}
+
+button:before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, .5);
+    width: 60px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: .5s;
+    filter: blur(30px);
+    /* transform: translate(-130px) skewX(-15deg); */
+}
+
+button:after{
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, .5);
+    width: 30px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    filter: blur(30px);
+    /* transform: translate(-100px) skewX(-15deg); */
+}
+button:hover{
+    background: #e24949;
+    cursor: pointer;
+}
+button:hover:before{
+    /* transform: translate(300px) skew(-15deg); */
+    opacity: .6;
+    transform: .7s;
+}
+button:hover:after{
+    /* transform: translate(300px) skew(-15deg); */
+    opacity: 1;
+    transform: .7s;
+}
+
+.alignbtn{
+    text-align: center;
+    padding: 8%;
+}
+
+.btn-success{
+    width: 250px;
+    height: 67px;
+}
+p{
+    margin-top: 9.5px;
+}
+
+.timer {
+    font-size: 45px;
+    text-align: center;
+}
+
+.control {
+    text-align: center;
+}

@@ -3,31 +3,47 @@
     <div class="row">
 
       <div class="col-lg-4 col-sm-12 col-md-4">
-        <button class="btn recordBtn" (click)="startRecording()">{{recordText}}</button>
+        <button class="ml-5" (click)="startRecording()">{{recordText}}</button>
       </div>
 
       <div class="col-lg-4 col-sm-12 col-md-4">
-        <button class="btn recordBtn ml-5" (click)="stopRecording()">Stop Recording</button>
+        <button class="ml-5" (click)="stopRecording()">Stop Recording</button>
       </div>
 
       <div class="col-lg-4 col-sm-12 col-md-4">
-        <button class="btn recordBtn ml-5" (click)="clearRecordeDate()">Clear Recording</button>
+        <button class="ml-5" (click)="clearRecordeDate()">Clear Recording</button>
       </div>
 
 
     </div>
   </div>
 
-  <div *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
-
+  <div class="timer" *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
 
   <!-- <audio *ngIf="!isRecording && blobUrl" src="blobUrl" type="audio/mp3" controls="controls"> -->
   <audio *ngIf="!isRecording && blobUrl" [src]="blobUrl" type="audio/wav" controls="controls">
     <!-- <source [src]="blobUrl" type="audio/webm"> -->
       
-  </audio><a [href]="blobUrl" *ngIf="!isRecording && blobUrl" (click)="onConvertAudio()" download="test.wav">Download</a>
+  </audio>
+  <a [href]="blobUrl" *ngIf="!isRecording && blobUrl" (click)="onConvertAudio()" download="test.wav">Convert to Text</a>
 
 
   <!-- <div class="btn btn-success" (click)="onConvertAudio()">Convert</div> -->
 
+<!-- <div class="control" >
+    <audio *ngIf="!isRecording && blobUrl" [src]="blobUrl" type="audio/wav" controls="controls">
+   <audio *ngIf="!isRecording && blobUrl" controls> -->
+      <!-- <audio *ngIf="!isRecording && blobUrl" [src]="blobUrl" type="audio/wav" controls="controls"> -->
+    <!-- <source [src]="blobUrl" type="audio/webm"> -->
+  <!-- </audio>
+</div>  -->
+  <!-- <div class="alignbtn"> -->
+      <!-- <audio *ngIf="!isRecording && blobUrl" [src]="blobUrl" type="audio/wav" controls="controls"> -->
+      <!-- <div class="btn btn-success btn-lg"> -->
+          <!-- <div class="btn btn-success btn-lg" (click)="onConvertAudio()"><p>Convert</p></div> -->
+      <!-- <a [href]="blobUrl" *ngIf="!isRecording && blobUrl" (click)="onConvertAudio()" download="test.wav">Download</a> -->
+      
+    <!-- </div> -->
+    <!-- <div class="btn btn-success btn-lg" (click)="onConvertAudio()"><p>Convert</p></div> -->
+  
 </div>

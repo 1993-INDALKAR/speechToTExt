@@ -1,36 +1,47 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
 <div class="container">
   <form [formGroup]="saveUserForm" (submit)="saveUser()">
 
     <div class="form-group">
-      <label for="inputFirstName">First Name</label>
-      <input type="text" class="form-control" id="inputFirstName"  aria-describedby="nameHelp" formControlName="firstName"
-        placeholder="Enter First Name">
+      <!-- <label for="inputFirstName">First Name</label> -->
+      <!-- <input type="text" class="form-control" id="inputFirstName"  aria-describedby="nameHelp" formControlName="firstName"
+        placeholder="Enter First Name"> -->
+        <input type="text" id="inputFirstName" class="fadeIn second" aria-describedby="nameHelp" formControlName="firstName" placeholder="First Name">
     </div>
 
     <div class="form-group">
-    <label for="inputLastName">Last Name</label>
-    <input type="text" class="form-control" id="inputLastName" aria-describedby="nameHelp" formControlName="lastName" 
-      placeholder="Enter Last Name">
+    <!-- <label for="inputLastName">Last Name</label> -->
+    <!-- <input type="text" class="form-control" id="inputLastName" aria-describedby="nameHelp" formControlName="lastName" 
+      placeholder="Enter Last Name"> -->
+      <input type="text" id="inputLastName" class="fadeIn second" aria-describedby="nameHelp" formControlName="lastName" placeholder="Last Name">
       <!-- <control-messages [control]="saveUserForm.controls.lastName"></control-messages> -->
     </div>
 
 
     <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+    <!-- <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"   formControlName="emailAddress"
-      placeholder="Enter email">
+      placeholder="Enter email"> -->
+      <input type="text" id="exampleInputEmail1" class="fadeIn second" aria-describedby="emailHelp" formControlName="emailAddress" placeholder="Email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     <!-- <control-messages [control]="saveUserForm.controls.emailAddress"></control-messages> -->
     </div>
 
     <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="Password">
+    <!-- <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="Password"> -->
+    <input type="password" id="exampleInputPassword1" class="fadeIn second" aria-describedby="password" placeholder="Password">
     <!-- <control-messages [control]="saveUserForm.controls.password"></control-messages> -->
     </div>
 
     <!-- <button type="submit" class="btn btn-primary" [disabled]="!saveUserForm.valid">Submit</button> -->
-    <button type="submit" class="btn btn-primary" [disabled]="!saveUserForm.valid">Submit</button>
+    <!-- <button type="submit" class="btn btn-primary" [disabled]="!saveUserForm.valid">Submit</button> -->
+    <input type="submit" class="fadeIn fourth" [disabled]="!saveUserForm.valid" value="Sign in">
 
   </form>
+</div>
+
+</div>
 </div>

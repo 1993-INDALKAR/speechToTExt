@@ -1,10 +1,16 @@
-<!-- <div class="card">
-  <div class="card-body"> -->
+
+
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
 <form [formGroup]="loginForm">
   <div class="form-group">
-    <label class="col-md-4">Username </label>
-    <input type="email" class="form-control" formControlName="userName" />
-    <div *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)"
+    <!-- <label class="col-md-4">Username </label> -->
+    <!-- <input type="email" class="form-control" formControlName="userName" /> -->
+    <input type="text" id="login" class="fadeIn second" name="login" formControlName="userName" placeholder="login">
+    <div
+      *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)"
       class="alert alert-danger">
       <div *ngIf="loginForm.controls['userName'].errors.required">
         Username is required.
@@ -12,9 +18,10 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="col-md-4">Password </label>
-    <input type="password" class="form-control" formControlName="password" />
-    <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+    <!-- <input type="password" class="form-control" formControlName="password" /> -->
+    <input type="password" id="password" class="fadeIn third" name="login" formControlName="password" placeholder="password">
+    <div
+      *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
       class="alert alert-danger">
       <div *ngIf="loginForm.controls['password'].errors.required">
         Password is required.
@@ -22,13 +29,11 @@
     </div>
   </div>
   <div class="form-group">
-    <button type="submit" class="btn btn-success" [disabled]="loginForm.pristine || loginForm.invalid" (click)="onSubmit()">Submit</button>
+    <!-- <button type="submit" class="btn btn-success" [disabled]="loginForm.pristine || loginForm.invalid"
+      (click)="onSubmit()">Submit</button> -->
+      <input type="submit" class="fadeIn fourth" [disabled]="loginForm.pristine || loginForm.invalid"
+      (click)="onSubmit()" value="Log In">
   </div>
 </form>
-<!-- </div>
-</div> -->
-
-<div *ngIf="createUser">
-  <h1>User created Successfully</h1>
-  <h1>Please login</h1>
+</div>
 </div>
