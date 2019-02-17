@@ -23,27 +23,38 @@
   <!-- <audio *ngIf="!isRecording && blobUrl" src="blobUrl" type="audio/mp3" controls="controls"> -->
   <audio *ngIf="!isRecording && blobUrl" [src]="blobUrl" type="audio/wav" controls="controls">
     <!-- <source [src]="blobUrl" type="audio/webm"> -->
-      
+
   </audio>
+  <!-- <div *ngIf="!isRecording && blobUrl">
+    <form [formGroup]="passForm">
+      <div class="form-group">
+        <input type="password" placeholder="Password of your gmail to send mail." formControlName="password">
+      </div>
+    </form>
+
+  </div> -->
   <a [href]="blobUrl" *ngIf="!isRecording && blobUrl" (click)="onConvertAudio()" download="test.wav">Convert to Text</a>
 
 
   <!-- <div class="btn btn-success" (click)="onConvertAudio()">Convert</div> -->
 
-<!-- <div class="control" >
+  <!-- <div class="control" >
     <audio *ngIf="!isRecording && blobUrl" [src]="blobUrl" type="audio/wav" controls="controls">
    <audio *ngIf="!isRecording && blobUrl" controls> -->
-      <!-- <audio *ngIf="!isRecording && blobUrl" [src]="blobUrl" type="audio/wav" controls="controls"> -->
-    <!-- <source [src]="blobUrl" type="audio/webm"> -->
+  <!-- <audio *ngIf="!isRecording && blobUrl" [src]="blobUrl" type="audio/wav" controls="controls"> -->
+  <!-- <source [src]="blobUrl" type="audio/webm"> -->
   <!-- </audio>
 </div>  -->
   <!-- <div class="alignbtn"> -->
-      <!-- <audio *ngIf="!isRecording && blobUrl" [src]="blobUrl" type="audio/wav" controls="controls"> -->
-      <!-- <div class="btn btn-success btn-lg"> -->
-          <!-- <div class="btn btn-success btn-lg" (click)="onConvertAudio()"><p>Convert</p></div> -->
-      <!-- <a [href]="blobUrl" *ngIf="!isRecording && blobUrl" (click)="onConvertAudio()" download="test.wav">Download</a> -->
-      
-    <!-- </div> -->
-    <!-- <div class="btn btn-success btn-lg" (click)="onConvertAudio()"><p>Convert</p></div> -->
-  
+  <!-- <audio *ngIf="!isRecording && blobUrl" [src]="blobUrl" type="audio/wav" controls="controls"> -->
+  <!-- <div class="btn btn-success btn-lg"> -->
+  <!-- <div class="btn btn-success btn-lg" (click)="onConvertAudio()"><p>Convert</p></div> -->
+  <!-- <a [href]="blobUrl" *ngIf="!isRecording && blobUrl" (click)="onConvertAudio()" download="test.wav">Download</a> -->
+
+  <!-- </div> -->
+  <!-- <div class="btn btn-success btn-lg" (click)="onConvertAudio()"><p>Convert</p></div> -->
+
 </div>
+
+<div *ngIf="success;then content">Success</div>
+<ng-template #content>Failuer</ng-template>

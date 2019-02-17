@@ -9,20 +9,30 @@ try {
         // console.log(req.body);
         let userDetail = req.body;
         let status;
+        const cookieName = req.body.firstName
+        // res.cookie("name",cookieName,{ maxAge: 900000, httpOnly: true });
 
-        // console.log(user);
+
+
+        console.log(res.cookie);
 
         let checkUser = await data.checkUser(userDetail);
 
-        console.log(checkUser);
+        // console.log(checkUser.message);
 
         if (checkUser.hasOwnProperty("message")) {
             status = 400;
         }
         else {
             status = 200;
+            // res.cookie('name', `${checkUser._id}`);
+            // console.log(checkUser._id);
         }
 
+
+
+        data.setCookie(checkUser._id);
+        // console.log(checkUser.message);
         res.status(status).json(checkUser);
     });
 }

@@ -1,19 +1,34 @@
 <!-- <form> -->
-<div>
-  <label>Full Name</label>
-  <input type="text" class="form-control" #fullName />
+<div class="container mt-5 ">
+  <h1 style="text-align: center">Please add your Colleagues and their E-mail Address<br /> --$$$-- <br/>It will help to send them Minuites of Meeting through Mail </h1>
 </div>
-<div>
-  <label>Email</label>
-  <input type="email" class="form-control" #email />
-</div>
-<button class="btn btn-success" (click)="addColleague()"> Add Colleagu </button>
-<!-- </form> -->
+<div class="wrapper fadeInDown">
+  <div id="formContent">
 
-<div>
-  <div *ngFor="let colleague of colleagues">
-    <h2>{{colleague.fullName}} : {{colleague.email}}</h2>
+
+    <div>
+      <!-- <label>Full Name</label> -->
+      <input type="text" class="form-control fadeIn second" #fullName placeholder="First Name" />
+    </div>
+    <div>
+      <!-- <label>Email</label> -->
+      <input type="email" class="form-control fadeIn third" #email placeholder="E-mail " />
+    </div>
+    <button class="btn btn-primary mt-2 btn-add fadeIn fourth" (click)="addColleague()"> Add Colleague </button>
+    <!-- </form> -->
+
+
+    <div *ngFor="let colleague of colleagues">
+      <h2>{{colleague.fullName}} : {{colleague.email}}</h2>
+    </div>
+
+
+    <!-- <button (click)="saveColleagues()">Save Colleagues</button> -->
+
+    <div class="form-group">
+      <input type="submit" class="fadeIn fourth" (click)="saveColleagues()" value="Save Colleagues">
+    </div>
+
+
   </div>
 </div>
-
-<button (click)="saveColleagues()">Save Colleagues</button>

@@ -13,10 +13,11 @@ export class ActualLoginComponent implements OnInit {
 
   loginForm: FormGroup;
   createUser: boolean;
+  error: boolean;
 
-  constructor(private formBuilder: FormBuilder, 
-              private loginService: SignupServiceService,
-              private routes:ActivatedRoute) {
+  constructor(private formBuilder: FormBuilder,
+    private loginService: SignupServiceService,
+    private routes: ActivatedRoute) {
 
     this.createForm();
 
@@ -46,7 +47,12 @@ export class ActualLoginComponent implements OnInit {
       userName: this.loginForm.getRawValue().userName,
       password: this.loginForm.getRawValue().password
     }
-    this.loginService.login(loginDetail);
+
+    let loginSuccess = this.loginService.login(loginDetail);
+    console.log(loginSuccess);
+    if (!loginSuccess) {
+      this.error = true;
+    }
   }
 
 }

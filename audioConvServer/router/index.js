@@ -4,6 +4,7 @@ const router = express.Router();
 const signupRoutes = require("./signup");
 const loginRoutes = require("./login");
 const audioConvRoutes = require("./audioConv");
+const saveColRoutes = require("./saveCol");
 
 try {
     const constructorMethod = app => {
@@ -14,6 +15,8 @@ try {
         app.use("/login", loginRoutes);
         
         app.use("/audioConv", audioConvRoutes);
+
+        app.use("/saveCol", saveColRoutes);
 
     }
 

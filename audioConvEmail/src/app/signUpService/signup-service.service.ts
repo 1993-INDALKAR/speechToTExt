@@ -32,6 +32,7 @@ export class SignupServiceService {
   async login(loginDetails) {
     this.httpClient.post(`${this.url}/login`, loginDetails)
       .subscribe(res => {
+        // console.log(res+"hfjgykh");
         if (!res.hasOwnProperty("message")) {
           if (res["colleagues"] == true)
             this.router.navigateByUrl("/audioConv");
@@ -39,7 +40,8 @@ export class SignupServiceService {
             this.router.navigateByUrl("/addColleagues");
         }
         else {
-          
+          console.log("false"+"false");
+          return false;
         }
       })
   }

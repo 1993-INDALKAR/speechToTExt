@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
   async saveUser() {
     // console.log(this.saveUserForm.getRawValue().firstName);
     const details = this.saveUserForm.getRawValue();
+    // console.log(details);
     let signup = await this.signupService.signup(details);
   }
 

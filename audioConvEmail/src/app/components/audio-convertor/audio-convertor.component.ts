@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AudioRecordingServiceService } from 'src/app/AudioService/audio-recording-service.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AudioConvService } from 'src/app/AudioConvService/audio-conv.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-audio-convertor',
@@ -10,16 +11,18 @@ import { AudioConvService } from 'src/app/AudioConvService/audio-conv.service';
 })
 export class AudioConvertorComponent {
 
-
+  passForm: FormGroup;
   isRecording = false;
   recordedTime;
   blobUrl;
+  success;
 
   recordText: string = "Start Recording";
 
   constructor(private audioRecordingService: AudioRecordingServiceService,
     private sanitizer: DomSanitizer,
-    private audioConvService: AudioConvService) {
+    private audioConvService: AudioConvService,
+    private formBuilder: FormBuilder) {
 
     this.audioRecordingService.recordingFailed().subscribe(() => {
       this.isRecording = false;
@@ -68,6 +71,12 @@ export class AudioConvertorComponent {
     this.abortRecording();
   }
 
+  createForm() {
+    this.passForm = this.formBuilder.group({
+      password: ['', Validators.required]
+    });
+  }
+
   async onConvertAudio() {
 
     if (this.blobUrl) {
@@ -75,7 +84,7 @@ export class AudioConvertorComponent {
       //   this.blobUrl = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.record));
       // });
 
-      
+
 
 
       // const blob = new Blob([this.blobUrl], { type: 'audio/wav' });
@@ -95,7 +104,12 @@ export class AudioConvertorComponent {
       // const filePath = this.blobUrl.changingThisBreaksApplicationSecurity;
       // var audioFile = new Audio(filePath);
       // // console.log(audioFile);
-       await  this.audioConvService.convertAudio();
+
+
+
+      // console.log(this.passForm.getRawValue().password);
+      console.log(this.success);
+      this.success = await this.audioConvService.convertAudio();
     }
     else {
 

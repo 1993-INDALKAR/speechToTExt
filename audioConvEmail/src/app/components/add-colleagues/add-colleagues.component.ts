@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { AudioConvService } from 'src/app/AudioConvService/audio-conv.service';
 
 @Component({
   selector: 'app-add-colleagues',
@@ -7,12 +8,12 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 })
 export class AddColleaguesComponent implements OnInit {
 
-  colleagues:any[] = [];
+  colleagues: any[] = [];
 
   @ViewChild('fullName') inputNameRef: ElementRef;
   @ViewChild('email') inputEmailRef: ElementRef;
 
-  constructor() { }
+  constructor(private audioconvservice: AudioConvService) { }
 
   ngOnInit() {
   }
@@ -22,6 +23,9 @@ export class AddColleaguesComponent implements OnInit {
     let fullName = this.inputNameRef.nativeElement.value;
     let email = this.inputEmailRef.nativeElement.value;
 
+    this.inputNameRef.nativeElement.value = "";
+    this.inputEmailRef.nativeElement.value = "";
+    
     this.colleagues.push({
       fullName: fullName,
       email: email
@@ -29,8 +33,8 @@ export class AddColleaguesComponent implements OnInit {
     // console.log(this.inputNameRef.nativeElement.value);
   }
 
-  saveColleagues(){
-    
+  saveColleagues() {
+    this.audioconvservice.saveColleagues(this.colleagues);
   }
 
 }

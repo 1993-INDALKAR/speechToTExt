@@ -9,16 +9,21 @@ h1{
     text-align: center;
 }
 .bg{
-    height: 100px;
+    /* height: 100px; */
+    background-size:100% 100%;
 }
 
 .blinking{
-    margin-left: 0%;
-    margin-top: 0%;
-    padding: 6.5%;
-    height: 1000px;
+    /* margin-left: 0%; */
+    /* margin-top: 0%; */
+    /* padding: 6.5%; */
+    height: 100%;
+    width:100%;
     display: inline-block;
     background: url("../../../../Images/bg.png");
+     background-position: center;
+     background-repeat: no-repeat;
+    /* background-size: cover; */ 
 }
 
 p {
@@ -32,6 +37,7 @@ p {
     animation-iteration-count: infinite;
     /* padding: 1%; */
     margin-top: 23%;
+    margin-left:20%;
 }
 
 @keyframes blink-caret{
